@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Mona GCM Sample</string>
+    <string name="init_gcm_message">Click the below button to initialize GCM and obtain registration token.</string>
+    <string name="initialize_gcm">INITIALIZE GCM</string>
+    <string name="subscribe_message">Click the below button to subscribe for \'/topics/sample\'</string>
+    <string name="subscribe">SUBSCRIBE</string>
+    <string name="unsubscribe_message">Click the below button to unsubscribe for \'/topics/sample\'</string>
+    <string name="unsubscribe">UNSUBSCRIBE</string>
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hs.monagcmsample">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission android:protectionLevel="signature"
+        android:name="com.hs.monagcmsample.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.hs.monagcmsample.permission.C2D_MESSAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- GCM Setup Start -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="com.hs.monagcmsample" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".PushNotificationReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.hs.mona.NOTIFICATION" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+         * Create New Project with GCM support => https://goo.gl/DvVgnJ
+         * sender id obtained from google dev console.
+         -->
+        <meta-data
+            android:name="com.hs.mona.gcm_sender_id"
+            android:value="id:566367008397" />
+
+        <!-- GCM Setup End -->
+
+    </application>
+
+</manifest>
